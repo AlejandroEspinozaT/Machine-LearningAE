@@ -128,3 +128,119 @@
   - **Market Segmentation**: An **unsupervised learning** problem that discovers customer segments from unlabeled data.
   - **Diagnosing Diabetes**: A **supervised learning** problem, similar to the breast cancer example, using labeled data (diabetes or no diabetes).
 
+# Week 1: Linear Regression Model
+
+## Video 1: Linear Regression Model Part 1
+
+- **Introduction to Linear Regression**:
+  - Linear regression is a supervised learning algorithm that fits a straight line to data, commonly used for predicting numerical values (regression problems).
+  - **Example**: Predicting the price of a house based on its size using a dataset of house sizes and prices from Portland, USA.
+  
+- **Supervised Learning**:
+  - A supervised learning model is trained with labeled data (input-output pairs).
+  - For house price prediction, inputs (x) are house sizes, and outputs (y) are house prices.
+
+- **Regression vs. Classification**:
+  - **Regression**: Predicts continuous values (e.g., house prices).
+  - **Classification**: Predicts categories or discrete outputs (e.g., cat vs. dog).
+
+- **Dataset Representation**:
+  - Each data point is represented as an input feature (size of house) and target variable (price).
+  - **Notation**:
+    - **x**: Input feature (e.g., size of house).
+    - **y**: Target output (e.g., price of house).
+    - **m**: Total number of examples in the dataset (e.g., 47 houses).
+    - **(x, y)**: Each pair represents a training example.
+    - **xᵢ** and **yᵢ**: Represents the ith training example.
+
+- **Training Set**:
+  - The dataset used to train a model is called a **training set**.
+  - **Goal**: Use the training set to create a model that can predict outputs for new inputs.
+
+## Video 2: Linear Regression Model Part 2
+
+- **Supervised Learning Process**:
+  - A supervised learning algorithm takes a training set (input features and output targets) and produces a **function (f)** that predicts outputs for new inputs.
+  - **y-hat (ŷ)**: Represents the model's prediction for the target variable y.
+
+- **Linear Function**:
+  - The model’s function (f) is represented as a linear equation:
+    - **f(x) = wx + b**
+    - **w**: Weight (slope of the line).
+    - **b**: Bias (intercept).
+
+- **Linear Regression with One Variable**:
+  - This model is also known as **univariate linear regression** (one input feature).
+  - **Goal**: Find the values of **w** and **b** that produce the best-fit line to minimize prediction error.
+
+- **Cost Function**:
+  - The cost function measures the error between predicted and actual values.
+  - Minimizing the cost function is a key step in training the model and is widely used across machine learning.
+
+## Video 3: Cost Function Formula
+
+- **Introduction to the Cost Function**:
+  - The **cost function** measures how well the linear regression model fits the training data.
+  - **Goal**: Find the values of parameters **w** (weight) and **b** (bias) that minimize this cost function.
+
+- **Parameters**:
+  - **w** and **b** are the model parameters, determining the slope and y-intercept of the line.
+  - Different values of **w** and **b** result in different lines, and the goal is to find values that minimize prediction error.
+
+- **Defining the Cost Function**:
+  - For each training example **i**, the model makes a prediction **ŷᵢ = f(xᵢ) = wxᵢ + b**.
+  - The **error** for each example is the difference between the predicted value (ŷᵢ) and the actual target value (yᵢ).
+  - The **squared error** for each example is **(ŷᵢ - yᵢ)²**.
+  - The **cost function J(w, b)** is the average of the squared errors across all training examples:
+    - **J(w, b) = (1 / 2m) ∑ (ŷᵢ - yᵢ)²** (where **m** is the number of examples).
+    - The division by 2 is a convention to simplify calculations in optimization.
+
+- **Goal of Linear Regression**:
+  - Minimize the cost function **J(w, b)** to find the best values for **w** and **b**.
+
+## Video 4: Cost Function Intuition
+
+- **Understanding the Cost Function**:
+  - The cost function **J(w, b)** measures how well the model's line fits the data.
+  - **Goal**: Find **w** and **b** that minimize **J(w, b)**, resulting in the best-fit line.
+
+- **Visualizing the Cost Function**:
+  - Consider a simplified case with only **w** (setting **b** = 0):
+    - For a given value of **w**, compute the line’s fit to the data and its cost **J(w)**.
+    - Each value of **w** corresponds to a different line and a specific cost.
+    - **J(w)** can be visualized as a curve where the minimum point represents the best-fit line.
+  - Example:
+    - If **w = 1**, the line perfectly fits example points (1, 1), (2, 2), and (3, 3), resulting in **J(1) = 0**.
+    - If **w = 0.5** or **w = 0**, the cost **J** is higher, indicating a less accurate fit.
+
+- **Minimizing the Cost**:
+  - To find the optimal **w** and **b** values, select those that result in the smallest **J(w, b)**.
+  - The best-fit line minimizes the squared errors, producing the lowest possible cost function value.
+
+
+## Video 5: Cost Function Visualization
+
+- **3D Visualization of Cost Function**:
+  - In linear regression, the cost function **J(w, b)** resembles a 3D "bowl" shape.
+  - **Goal**: Minimize **J(w, b)** by finding values of **w** and **b** that produce the best-fit line.
+  - Each point on the surface represents a specific pair of values for **w** and **b**, with the height representing the cost.
+  - The lowest point on this surface represents the minimum cost, where the model best fits the data.
+
+- **Contour Plot**:
+  - A **contour plot** represents the cost function in 2D by slicing horizontally through the "bowl."
+  - Each ellipse represents points where the cost function **J(w, b)** has the same value.
+  - The smallest ellipse at the center corresponds to the minimum cost, where **J(w, b)** is minimized.
+
+## Video 6: Visualization Examples
+
+- **Examples of Parameter Choices**:
+  - Visualizations show how different values of **w** and **b** affect the line fit to the data and the cost **J(w, b)**.
+  - **Example 1**: **w = -0.15**, **b = 800**.
+    - The line has a high cost because it poorly fits the data.
+  - **Example 2**: **w = 0**, **b = 360**.
+    - Flat line (slope = 0), which is still a poor fit for the data, resulting in a relatively high cost.
+  - **Example 3**: Better values of **w** and **b** lead to a line closer to the data points, minimizing **J(w, b)**.
+
+- **Interactive Lab**:
+  - In the optional lab, you can adjust **w** and **b** values to see how the line fit and cost **J(w, b)** change.
+  - Includes interactive contour and 3D surface plots for hands-on exploration of the cost function.
