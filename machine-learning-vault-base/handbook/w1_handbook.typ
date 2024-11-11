@@ -244,3 +244,72 @@
 - **Interactive Lab**:
   - In the optional lab, you can adjust **w** and **b** values to see how the line fit and cost **J(w, b)** change.
   - Includes interactive contour and 3D surface plots for hands-on exploration of the cost function.
+
+# Week 1: Implementing Gradient Descent
+
+## Video 1: Gradient Descent Overview
+
+- **Gradient Descent**:
+  - Gradient descent is an optimization algorithm used to minimize the cost function **J(w, b)** by iteratively adjusting parameters **w** and **b**.
+  - This approach is used widely across machine learning, from simple linear regression to complex deep learning models.
+
+- **Process**:
+  - Start with initial guesses for **w** and **b** (often **w = 0** and **b = 0**).
+  - Adjust **w** and **b** in small steps to reduce **J(w, b)**, iterating until the cost stabilizes at a minimum.
+
+- **Intuition**:
+  - Imagine standing on a hill and taking small steps downhill (steepest descent) to reach the lowest point, or local minimum.
+
+## Video 2: Implementing Gradient Descent
+
+- **Update Rule**:
+  - For each iteration, update **w** and **b** as follows:
+    - **w = w - α * (dJ/dw)**
+    - **b = b - α * (dJ/db)**
+    - **α** (alpha) is the **learning rate**, controlling the size of each step.
+  - **Simultaneous Update**: Both **w** and **b** should be updated at the same time to ensure correct implementation.
+
+- **Learning Rate (α)**:
+  - A small **α** results in slow progress, while a large **α** can cause overshooting and failure to converge.
+  - The choice of **α** greatly affects the efficiency and success of gradient descent.
+
+## Video 3: Gradient Descent Intuition
+
+- **Derivative Term**:
+  - The derivative **dJ/dw** (or **dJ/db**) indicates the direction to move **w** (or **b**) to reduce **J**.
+  - Moving in the direction opposite to the derivative (steepest descent) leads towards the minimum.
+
+- **Effect of Learning Rate**:
+  - If **α** is too small, the algorithm converges slowly.
+  - If **α** is too large, the algorithm may diverge by overshooting the minimum repeatedly.
+
+## Video 4: Learning Rate Details
+
+- **Choosing the Learning Rate**:
+  - A moderate learning rate results in a balance between convergence speed and stability.
+  - If the parameters reach a local minimum, further updates stop since the derivative becomes zero.
+
+## Video 5: Gradient Descent for Linear Regression
+
+- **Applying Gradient Descent to Linear Regression**:
+  - With **J(w, b)** as the mean squared error cost function, compute the derivatives:
+    - **dJ/dw = (1/m) Σ (ŷᵢ - yᵢ) * xᵢ**
+    - **dJ/db = (1/m) Σ (ŷᵢ - yᵢ)**
+  - The derivatives allow **w** and **b** to be updated at each step.
+
+- **Convexity**:
+  - The cost function for linear regression is convex (bowl-shaped), meaning there is only one global minimum, ensuring convergence.
+
+## Video 6: Running Gradient Descent
+
+- **Visualization**:
+  - Visualize the linear regression line fit improving with each iteration as **J(w, b)** moves closer to the global minimum.
+  - After convergence, the final line fit can be used to make predictions, such as predicting a house price based on its size.
+
+- **Batch Gradient Descent**:
+  - This version of gradient descent uses the entire training set at each update step, ensuring stability for small datasets.
+  - Other gradient descent variants exist that use subsets of data, known as **stochastic** or **mini-batch gradient descent**.
+
+- **Summary**:
+  - Successfully applying gradient descent to linear regression completes the first machine learning model, preparing you to handle more complex models in the future.
+
